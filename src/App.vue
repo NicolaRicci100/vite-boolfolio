@@ -2,8 +2,9 @@
 import axios from 'axios';
 const endpoint = 'http://localhost:8000/api/posts/';
 import AppHeader from './components/AppHeader.vue';
+import ProjectsList from './components/projects/ProjectsList.vue';
 export default {
-  components: { AppHeader },
+  components: { AppHeader, ProjectsList },
   data: () => ({ posts: [] }),
   methods: {
     fetchPosts() {
@@ -19,10 +20,7 @@ export default {
 <template>
   <AppHeader />
   <main class="container my-5">
-    <h1>Hello!</h1>
-    <ul>
-      <li v-for="post in posts" :key="post.id">{{ post.title }}</li>
-    </ul>
+    <ProjectsList :posts="posts" />
   </main>
 </template>
 
