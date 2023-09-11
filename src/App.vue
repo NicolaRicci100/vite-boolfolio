@@ -7,7 +7,7 @@ export default {
   data: () => ({ posts: [] }),
   methods: {
     fetchPosts() {
-      axios.get(endpoint).then(res => { console.log(res.data) })
+      axios.get(endpoint).then(res => { this.posts = res.data })
     }
   },
   created() {
