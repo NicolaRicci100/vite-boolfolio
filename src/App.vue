@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-const endpoint = 'http://127.0.0.1:8000/api/posts/';
+const endpoint = 'http://localhost:8000/api/posts/';
 import AppHeader from './components/AppHeader.vue';
 export default {
   components: { AppHeader },
