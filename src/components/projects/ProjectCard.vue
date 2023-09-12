@@ -1,7 +1,7 @@
 <script>
 export default {
   name: 'ProjectCard',
-  props: { post: Object },
+  props: { post: Object, isDetail: Boolean },
   computed: {
     projectDate() {
       const date = new Date(this.post.created_at);
@@ -28,20 +28,22 @@ export default {
 </script>
 
 <template>
-  <section>
-    <div class="jumbotron p-5 mb-4 bg-light rounded-3">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">{{ post.title }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ projectDate }}</h6>
-          <div class="clearfix">
-            <img class="float-start me-2" :src="post.image" :alt="post.title">
-            <p class="card-text">{{ textAbstract }}</p>
-          </div>
+  <div class="jumbotron p-2 bg-light rounded-3">
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ projectDate }}</h6>
+        <div class="clearfix">
+          <img class="float-start me-2" style="width: 10rem;" :src="post.image" :alt="post.title">
+          <p class="card-text">{{ isDetail ? post.content : textAbstract }}</p>
+        </div>
+        <div class="d-flex justify-content-end align-items-center">
+          <RouterLink class="btn btn-outline-secondary" :to="{ name: 'project-detail', params: { id: post.id } }">Dettagli
+          </RouterLink>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <style></style>
